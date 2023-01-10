@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Settings</title>
+</head>
+
+<body>
+    <input id="volumeslider" type="range" min="0" max="1" step="0.1" value="1" oninput="outputUpdate(value)" />
+    <script>
+        if (sessionStorage.getItem("volumeslider")) {
+            document.getElementById("volumeslider").value = sessionStorage.getItem('volumeslider');
+        }
+        function outputUpdate(value) {
+            sessionStorage.setItem('volumeslider', value)
+        }
+    </script>
+</body>
+
+</html>
