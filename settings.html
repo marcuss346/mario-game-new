@@ -6,17 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Settings</title>
+    <link rel="stylesheet" href="./styles/settings.css">
 </head>
 
 <body>
-    <input id="volumeslider" type="range" min="0" max="1" step="0.1" value="1" oninput="outputUpdate(value)" />
+    <div>
+        <p>VOLUME SLIDER</p> <br />
+        <input id="volumeslider" type="range" min="0" max="1" step="0.1" value="0" oninput="outputUpdate(value)"
+            class="slider" id="myRange" />
+        <br /> <br />
+        <p>DIFFICULTY SLIDER(nuber of enemies)</p> <br />
+        <input id="NumberOfEnemies" type="range" min="1" max="5" step="1" value="0" oninput="outputUpdate2(value)"
+            class="slider" id="myRange" />
+
+    </div>
+
+
+
     <script>
-        if (sessionStorage.getItem("volumeslider")) {
-            document.getElementById("volumeslider").value = sessionStorage.getItem('volumeslider');
+        if (localStorage.getItem("volumeslider")) {
+            document.getElementById("volumeslider").value = localStorage.getItem('volumeslider');
+        }
+        if (localStorage.getItem("NumberOfEnemies")) {
+            document.getElementById("NumberOfEnemies").value = localStorage.getItem('NumberOfEnemies');
         }
         function outputUpdate(value) {
-            sessionStorage.setItem('volumeslider', value)
+            localStorage.setItem('volumeslider', value)
         }
+        function outputUpdate2(value) {
+            localStorage.setItem('NumberOfEnemies', value)
+        }
+
+
     </script>
 </body>
 
